@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:moreswift}/modernswift/SwiftConcurrencyCachingDemo",
+            "name": "Debug SwiftConcurrencyCachingDemo (modernswift/SwiftConcurrencyCachingDemo)",
+            "target": "SwiftConcurrencyCachingDemo",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug SwiftConcurrencyCachingDemo (modernswift/SwiftConcurrencyCachingDemo)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:moreswift}/modernswift/SwiftConcurrencyCachingDemo",
+            "name": "Release SwiftConcurrencyCachingDemo (modernswift/SwiftConcurrencyCachingDemo)",
+            "target": "SwiftConcurrencyCachingDemo",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release SwiftConcurrencyCachingDemo (modernswift/SwiftConcurrencyCachingDemo)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:moreswift}/modernswift/SwiftConcurrencyCachingDemo",
+            "name": "Debug swift-concurrency-demo (modernswift/SwiftConcurrencyCachingDemo)",
+            "target": "swift-concurrency-demo",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug swift-concurrency-demo (modernswift/SwiftConcurrencyCachingDemo)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:moreswift}/modernswift/SwiftConcurrencyCachingDemo",
+            "name": "Release swift-concurrency-demo (modernswift/SwiftConcurrencyCachingDemo)",
+            "target": "swift-concurrency-demo",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release swift-concurrency-demo (modernswift/SwiftConcurrencyCachingDemo)"
+        }
+    ]
+}

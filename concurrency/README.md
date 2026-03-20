@@ -1,4 +1,6 @@
-# Swift Concurrency Examples 
+## Swift Concurrency Examples 
+
+Run examples using the following `swiftc -parse-as-library e1.swift -o e1`
 
 | ID  | Concepts covered | Pattern demonstrated | When to use | Common pitfalls / “gotchas” |
 |-----|------------------|----------------------|-------------|-----------------------------|

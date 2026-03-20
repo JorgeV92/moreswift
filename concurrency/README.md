@@ -1,0 +1,14 @@
+# Swift Concurrency Examples 
+
+| ID  | Concepts covered | Pattern demonstrated | When to use | Common pitfalls / “gotchas” |
+|-----|------------------|----------------------|-------------|-----------------------------|
+| E1  | `async/await`, structured concurrency, error propagation | `async let` for fixed small fan-out | Parallelize a few independent async operations where results are all needed | Forgetting to await all `async let` values before scope ends; accidental serial execution by awaiting too early |
+| E2  | Tasks, cancellation, cooperative cancellation | `Task {}` + `Task.cancel()` + `Task.checkCancellation()` | Long-running loop or repeated polling work that should stop quickly | Cancellation is cooperative; if you never check, your task won’t stop |
+| E3  | `TaskGroup`, parallelism, bounded parallel loops, error propagation | `withThrowingTaskGroup` + streaming results (`group.next()`) | Parallel map over many items; control concurrency to avoid overload | Capturing non-`Sendable` in child tasks; unbounded parallelism; nondeterministic ordering if you don’t preserve indices |
+| E4  | actors, structured concurrency, `MainActor` | Actor-isolated mutable state + UI-safe hop | Shared mutable state across tasks; UI updates from background tasks | Actor reentrancy at `await` points; accidental main-thread blocking |
+| E5  | cancellation + error propagation in a group | Fail-fast fan-out with `for try await` over group | “All-or-nothing” concurrent work (cancel siblings when one fails) | Assuming child tasks stop immediately; forgetting cleanup (use cancellation handlers) |
+| E6  | cancellation handlers, cleanup | `withTaskCancellationHandler(operation:onCancel:)` | Tie cancellation to resource cleanup (files, handles, observers) | `onCancel` should be idempotent; don’t do heavy blocking work inside cancel handler |
+| E7  | continuations, bridging completion handlers, cancellation | `withCheckedThrowingContinuation` + cancellation handler | Wrap legacy callback APIs into async functions safely | Resuming continuation more than once; cancellation races; “lost callback” if underlying API never completes |
+| E8  | `AsyncStream`, bridging event streams | Convert callback/event source to `AsyncStream` | Delegate/callback to `AsyncSequence` bridge (events over time) | Forgetting `onTermination` cleanup; yielding from the wrong isolation context |
+| E9  | GCD interop, continuations | Wrap `DispatchQueue.async` into async function | Offload blocking CPU work; bridge non-async APIs | Blocking Swift concurrency thread pool; continuation must resume exactly once |
+| E10 | `OperationQueue` interop, continuations, cancellation | Wrap `Operation` to async + cancellation | Integrate legacy `OperationQueue` pipelines; migrate gradually | Operation cancellation isn’t preemptive; `completionBlock` races; must handle “cancel before completion” |

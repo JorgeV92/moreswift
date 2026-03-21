@@ -39,6 +39,26 @@
             "target": "swift-concurrency-demo",
             "configuration": "release",
             "preLaunchTask": "swift: Build Release swift-concurrency-demo (modernswift/SwiftConcurrencyCachingDemo)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:moreswift}/modernswift/swiftfilesystem",
+            "name": "Debug swiftfilesystem (modernswift/swiftfilesystem)",
+            "target": "swiftfilesystem",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug swiftfilesystem (modernswift/swiftfilesystem)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:moreswift}/modernswift/swiftfilesystem",
+            "name": "Release swiftfilesystem (modernswift/swiftfilesystem)",
+            "target": "swiftfilesystem",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release swiftfilesystem (modernswift/swiftfilesystem)"
         }
     ]
 }
